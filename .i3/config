@@ -1,7 +1,7 @@
 
 # USED APPS
 set $term termite
-set $app_runner $HOME/.scripts/j4-dmenu-leinnan.sh 
+set $app_runner j4-dmenu-desktop --usage-log=$HOME/.app_list_usage
 set $file_manager thunar
 set $web_browser firefox
 set $ide codelite
@@ -218,7 +218,7 @@ bindsym Mod1+Shift+r restart
 
 
 # Startup programs
-exec --no-startup-id feh --bg-scale /home/piotr/.loading_wallpaper.jpg
+exec --no-startup-id feh --bg-scale /home/piotr/.wykop_wallpaper.jpg
 exec i3-config-wizard
 exec --no-startup-id setxkbmap pl
 exec conky
