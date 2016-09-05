@@ -1,0 +1,13 @@
+alias szukaj='sudo apt-cache search'
+alias instaluj='sudo pacman -S'
+alias usuń='sudo pacman -R'
+alias aktualizuj='sudo pacman -Sy'
+alias jasniej='xbacklight + 10% -time 500'
+alias xfce_restart='xfce4-panel -r &'
+alias login_sql="mysql -u root --password=xxxxxxxxx" 
+alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+alias zshrc="nano ~/.zshrc && reload"
+alias calc='python -i -c "from math import *"'
+alias music_console='ncmpcpp'
+alias ytmp3='youtube-dl --extract-audio --audio-format mp3'
+alias j4dmenuleinnan='j4-dmenu-desktop --usage-log=/home/piotr/.app_list_usage --dmenu="dmenu -b -p \"Uruchom\" -nb \"#2f343f\" -nf \"#aaaaaa\" -sb \"#2f343f\" -sf \"#5294e2\"" ' 

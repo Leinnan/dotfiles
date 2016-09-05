@@ -1,0 +1,228 @@
+
+# USED APPS
+set $term termite
+set $app_runner $HOME/.scripts/j4-dmenu-leinnan.sh 
+set $file_manager thunar
+set $web_browser firefox
+set $ide codelite
+set $screen_lock xkcd_lockscreen
+set $screenshot scrot /home/piotr/Obrazy/Screens/%d_%m_%y-%H%M%S.png
+set $exit_shortcut twm-session-logout
+
+# MY NAMES FOR WORKSPACE
+set $tag1 "1: &#xf02d; main"
+set $tag2 "2: &#xf269; web"
+set $tag3 "3: &#xf120; term"
+set $tag4 "4: &#xf025; media"
+set $tag5 "5: off"
+set $tag6 "6: misc"
+set $tag7 "7"
+set $tag8 "8"
+set $tag9 "9"
+set $tag10 "10"
+
+# MY SHORTCUTS
+bindsym Mod1+Print exec $screenshot
+bindsym Mod1+d exec $app_runner
+bindsym Mod4+L exec $screen_lock
+bindsym Mod4+F exec $file_manager
+bindsym Mod4+W exec $web_browser
+bindsym Mod4+C exec $ide
+bindsym Mod1+Shift+e exec $exit_shortcut
+bindsym Mod1+F5 exec xbacklight -5 -time 100
+bindsym Mod1+F6 exec xbacklight +5 -time 100
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -q set Master mute
+
+# LOOK SETTINGS
+font pango:SFNS Text MediumP4 9	
+new_window pixel 1
+new_float pixel 2
+gaps inner 5
+gaps outer 15
+smart_gaps on
+smart_borders on
+set $back               #2f343f
+set $active		#5294e2
+set $inactive		#888888
+set $red		#dc322f
+set $fgfont		#cdcdcd
+
+
+# BAR
+bar {
+	font pango:SFNS Display Bold, FontAwesome 8 
+	colors {
+		background $back
+		statusline $fgfont
+		separator $back
+		focused_workspace $back $back $active
+		active_workspace $active $back $active
+		inactive_workspace $back $back $inactive
+		urgent_workspace $red $back $red
+	}
+	height 28
+	position top
+	strip_workspace_numbers yes
+	status_command i3gs
+}
+
+
+for_window [window_role="pop-up"] floating enable
+for_window [title="^SFML*"] floating enable
+for_window [class="Twm-session-logout"] floating enable
+for_window [title="^Wyszukiwarka prog*"] floating enable
+
+
+#class                  border      backgr.     text        split
+client.unfocused          $back       $back       $back  $back
+client.focused_inactive $back       $back       $back  $back
+client.focused        $active     $active       $active      $active
+client.urgent           $back        $back        $back      $back
+client.background       $back
+
+
+
+
+# VI LIKE CONTROLS
+set $up l
+set $down k
+set $left j
+set $right semicolon
+
+# use Mouse+Mod1 to drag floating windows to their wanted position
+floating_modifier Mod1
+
+
+bindsym Mod1+Return exec $term
+bindsym Mod4+T exec $term
+bindsym Mod1+Ctrl+T exec $term
+
+# kill focused window
+bindsym Mod1+Shift+q kill
+bindsym Mod1+F4 kill
+
+
+# change focus
+bindsym Mod1+$left focus left
+bindsym Mod1+$down focus down
+bindsym Mod1+$up focus up
+bindsym Mod1+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod1+Left focus left
+bindsym Mod1+Down focus down
+bindsym Mod1+Up focus up
+bindsym Mod1+Right focus right
+
+# move focused window
+bindsym Mod1+Shift+$left move left
+bindsym Mod1+Shift+$down move down
+bindsym Mod1+Shift+$up move up
+bindsym Mod1+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod1+Shift+Left move left
+bindsym Mod1+Shift+Down move down
+bindsym Mod1+Shift+Up move up
+bindsym Mod1+Shift+Right move right
+
+# split in horizontal orientation
+bindsym Mod1+h split h
+
+# split in vertical orientation
+bindsym Mod1+v split v
+
+# enter fullscreen mode for the focused container
+bindsym Mod1+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym Mod1+s layout stacking
+bindsym Mod1+w layout tabbed
+bindsym Mod1+e layout toggle split
+
+# toggle tiling / floating
+bindsym Mod1+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym Mod1+space focus mode_toggle
+
+# focus the parent container
+bindsym Mod1+a focus parent
+
+# focus the child container
+#bindsym Mod1+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym Mod1+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym Mod1+minus scratchpad show
+
+
+# switch to workspace
+bindsym Mod1+1 workspace $tag1
+bindsym Mod1+2 workspace $tag2
+bindsym Mod1+3 workspace $tag3
+bindsym Mod1+4 workspace $tag4
+bindsym Mod1+5 workspace $tag5
+bindsym Mod1+6 workspace $tag6
+bindsym Mod1+7 workspace $tag7
+bindsym Mod1+8 workspace $tag8
+bindsym Mod1+9 workspace $tag9
+bindsym Mod1+0 workspace $tag10
+
+# move focused container to workspace
+bindsym Mod1+Shift+1 move container to workspace $tag1
+bindsym Mod1+Shift+2 move container to workspace $tag2
+bindsym Mod1+Shift+3 move container to workspace $tag3
+bindsym Mod1+Shift+4 move container to workspace $tag4
+bindsym Mod1+Shift+5 move container to workspace $tag5
+bindsym Mod1+Shift+6 move container to workspace $tag6
+bindsym Mod1+Shift+7 move container to workspace $tag7
+bindsym Mod1+Shift+8 move container to workspace $tag8
+bindsym Mod1+Shift+9 move container to workspace $tag9
+bindsym Mod1+Shift+0 move container to workspace $tag10
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym Mod1+r mode "resize"
+bindsym Mod1+Shift+c reload
+bindsym Mod1+Shift+r restart
+
+
+
+
+# Startup programs
+exec --no-startup-id feh --bg-scale /home/piotr/.loading_wallpaper.jpg
+exec i3-config-wizard
+exec --no-startup-id setxkbmap pl
+exec conky
+exec --no-startup-id /home/piotr/.skrypty/nie_za_ciemno.sh
+exec --no-startup-id /home/piotr/.skrypty/wykop_wallpaper.py 
+exec --no-startup-id feh --bg-scale /home/piotr/.wykop_wallpaper.jpg
+exec --no-startup-id dunst -config /home/piotr/.dunstcfg
