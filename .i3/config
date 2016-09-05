@@ -5,7 +5,7 @@ set $app_runner $HOME/.scripts/j4-dmenu-leinnan.sh
 set $file_manager thunar
 set $web_browser firefox
 set $ide codelite
-set $screen_lock xkcd_lockscreen
+set $screen_lock $HOME/.scripts/xkcd_lockscreen
 set $screenshot scrot /home/piotr/Obrazy/Screens/%d_%m_%y-%H%M%S.png
 set $exit_shortcut twm-session-logout
 
