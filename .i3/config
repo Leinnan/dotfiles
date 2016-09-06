@@ -218,11 +218,8 @@ bindsym Mod1+Shift+r restart
 
 
 # Startup programs
-exec --no-startup-id feh --bg-scale /home/piotr/.wykop_wallpaper.jpg
-exec i3-config-wizard
-exec --no-startup-id setxkbmap pl
+exec --no-startup-id feh --bg-scale $HOME/.wykop_wallpaper.jpg
 exec conky
-exec --no-startup-id /home/piotr/.skrypty/nie_za_ciemno.sh
-exec --no-startup-id /home/piotr/.skrypty/wykop_wallpaper.py 
-exec --no-startup-id feh --bg-scale /home/piotr/.wykop_wallpaper.jpg
-exec --no-startup-id dunst -config /home/piotr/.dunstcfg
+exec --no-startup-id $HOME/.scripts/not_to_dark.sh
+exec --no-startup-id $HOME/.skrypty/wykop_wallpaper.py 
+exec --no-startup-id dunst -config $HOME/.dunstcfg
