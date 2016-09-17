@@ -14,10 +14,10 @@ set $tag1 "1: &#xf02d; main"
 set $tag2 "2: &#xf269; web"
 set $tag3 "3: &#xf120; term"
 set $tag4 "4: &#xf025; media"
-set $tag5 "5: off"
-set $tag6 "6: misc"
-set $tag7 "7"
-set $tag8 "8"
+set $tag5 "5: &#xf121; dev"
+set $tag6 "6: &#xf0a1; news"
+set $tag7 "7: &#xf0f4; break"
+set $tag8 "8: &#xf083; gfx"
 set $tag9 "9"
 set $tag10 "10"
 
@@ -52,17 +52,18 @@ set $fgfont		#cdcdcd
 
 # BAR
 bar {
-	font pango:SFNS Display Bold, FontAwesome 8 
+	font pango: Source Sans Pro Semibold, FontAwesome 9 
 	colors {
 		background $back
 		statusline $fgfont
 		separator $back
 		focused_workspace $back $back $active
-		active_workspace $active $back $active
+		active_workspace $inactive $back $inactive
 		inactive_workspace $back $back $inactive
 		urgent_workspace $red $back $red
 	}
 	height 28
+        tray_padding 0 
 	position top
 	strip_workspace_numbers yes
 	status_command i3gs
@@ -76,10 +77,10 @@ for_window [title="^Wyszukiwarka prog*"] floating enable
 
 
 #class                  border      backgr.     text        split
-client.unfocused          $back       $back       $back  $back
-client.focused_inactive $back       $back       $back  $back
-client.focused        $active     $active       $active      $active
-client.urgent           $back        $back        $back      $back
+client.unfocused          $back       $back       $fgfont  $back
+client.focused_inactive $back       $back       $fgfont  $back
+client.focused        $active     $active       $back      $active
+client.urgent           $back        $back        $fgfont      $back
 client.background       $back
 
 
@@ -219,7 +220,8 @@ bindsym Mod1+Shift+r restart
 
 # Startup programs
 exec --no-startup-id feh --bg-scale $HOME/.wykop_wallpaper.jpg
-exec conky
+exec --no-startup-id conky
 exec --no-startup-id $HOME/.scripts/not_to_dark.sh
 exec --no-startup-id $HOME/.skrypty/wykop_wallpaper.py 
 exec --no-startup-id dunst -config $HOME/.dunstcfg
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

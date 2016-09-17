@@ -49,3 +49,57 @@ URxvt*scrollBar_floating: false
 ! white
 *.color7:       #c0c5ce
 *.color15:      #eff1f5
+
+! special
+*.foreground:   #b7b8b9
+
+
+! black
+*.color0:       #0c0d0e
+*.color8:       #737475
+
+! red
+*.color1:       #e31a1c
+*.color9:       #e31a1c
+
+! green
+*.color2:       #31a354
+*.color10:      #31a354
+
+! yellow
+*.color3:       #dca060
+*.color11:      #dca060
+
+! blue
+*.color4:       #3182bd
+*.color12:      #3182bd
+
+! magenta
+*.color5:       #756bb1
+*.color13:      #756bb1
+
+! cyan
+*.color6:       #80b1d3
+*.color14:      #80b1d3
+
+! white
+*.color7:       #b7b8b9
+*.color15:      #fcfdfe
+
+
+
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+! Use extended color scheme
+rofi.color-enabled:                  true
+! Color scheme for normal row
+rofi.color-normal:                   #ffffff,#525d76,#f5f5f5,#5294e2,#ffffff
+! Color scheme for urgent row
+rofi.color-urgent:                   #ffffff,#dc322f,#f5f5f5,#5294e2,#dc322f
+! Color scheme for active row
+rofi.color-active:                   #ffffff,#c2cad0,#f5f5f5,#5294e2,#c2cad0
+! Color scheme window
+rofi.color-window:                   #ffffff,#f5f5f5
+! Separator style (none, dash, solid)
+rofi.separator-style:                solid
